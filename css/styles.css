@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root{
+    --font: "Inter", sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: var(--font);
+}
+
+section.hidden{
+    display: none;
+}
+
+/* ---------------- PRELOADER STARTS ---------------- */
+
+.preloader{
+    height: 100svh;
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: smoothDisappearAnimation .5s 2s ease-in-out both;
+}
+
+.preloader__span, .profiles__span{
+    position: fixed;
+    top: 25px;
+    right: 28px;
+    font-weight: 400;
+    font-size: 0.875em;
+    color: #fff;
+}
+
+.preloader__figure{
+    width: 173px;
+    height: 173px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    animation: zoomAnimation 1s 1s ease-in-out both;
+}
+
+.preloader__img{
+    width: 85%;
+    height: 85%;
+}
+
+/* ---------------- PRELOADER ENDS ---------------- */
+
+/* ---------------- PROFILES STARTS ---------------- */
+
+.profiles:not(:has(.hidden)), .interface:not(:has(.hidden)){
+    animation: smoothAppearAnimation .5s ease-in-out both;
+}
+
+.profiles.fading:not(:has(.hidden)){
+    animation: smoothDisappearAnimation .5s ease-in-out both;
+}
+
+.profiles{
+    min-height: 100svh;
+    background-image: url("../assets/Selection Profile Background.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.profiles__container{
+    min-height: inherit;
+    padding: 80px 24px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    gap: 28px;
+    text-align: center;
+}
+
+.profiles__top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.profiles__title{
+    font-size: 1.875em;
+    font-weight: 500;
+}
+
+.profiles__paragraph{
+    font-weight: 400;
+    font-size: 0.875em;
+}
+
+.profiles__users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 26px;
+    margin-bottom: 27px;
+}
+
+.profiles__item{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    cursor: pointer;
+    transition: .3s ease-in-out scale;
+}
+
+.profiles__item:hover{
+    scale: 1.1;
+}
+
+.profiles__figure{
+    width: 100px;
+    height: 100px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.profiles__img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.profiles__name{
+    font-weight: 400;
+    font-size: 1.25em;
+}
+
+.profiles__footer{
+    position: absolute;
+    bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.profiles__footer__img{
+    width: 32px;
+    height: 32px;
+    filter: brightness(10);
+    opacity: .3;
+}
+
+.profiles__footer__span{
+    font-weight: 500;
+    font-size: 1.125em;
+    opacity: .3;
+}
+
+/* ---------------- PROFILES ENDS ---------------- */
+
+/* ---------------- INTERFACE STARTS ---------------- */
+
+.interface{
+    min-height: 100svh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ---------------- INTERFACE ENDS ---------------- */
+
+/* ---------------- ANIMACIONES ---------------- */
+
+@keyframes zoomAnimation {
+    0%{
+        scale: 1;
+    }
+
+    50%{
+        scale: 1.2;
+    }
+
+    100%{
+        scale: 0;
+    }
+}
+
+@keyframes smoothAppearAnimation {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes smoothDisappearAnimation {
+    0%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
